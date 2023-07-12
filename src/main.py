@@ -1,8 +1,12 @@
-from flask import Flask
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI(
+    title="FastAPI - Hello World",
+    description="This is the Hello World of FastAPI.",
+    version="1.0.0",
+)
 
 
-@app.route("/")
+@app.get("/")
 def hello_world():
-    return "<h1>Hello, World!</h1>"
+    return {"Hello": "World"}
