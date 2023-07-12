@@ -1,2 +1,4 @@
-Flask==2.3.2
-uvicorn==0.13.3
+Flask
+uvicorn
+fastapi
+httpx
