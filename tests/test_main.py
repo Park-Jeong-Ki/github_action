@@ -1,14 +1,14 @@
 import pytest
+from fastapi.testclient import TestClient
 from src.main import app
 
 
 @pytest.fixture
 def client():
-    with app.test_client() as client:
-        yield client
+    return TestClient(app)
 
 
 def test_hello_world(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert b"<h1>Hello, World!</h1>" in response.data
+    assert response.json() == {"Hello": "World"}
